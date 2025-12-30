@@ -5,7 +5,7 @@ import { AttractionCard } from "@/components/AttractionCard";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Leaf, History, Camera, Map as MapIcon } from "lucide-react";
-import homeHeroImg from "@assets/generated_images/aerial_view_of_rio_da_casca_nature.png";
+import homeHeroImg from "@assets/1000730803_1767132686330.png";
 import elephantImg from "@assets/generated_images/elephant_in_nature_sanctuary.png";
 import chaleImg from "@assets/generated_images/historic_chalé_dos_governadores.png";
 import trailImg from "@assets/generated_images/hiking_trail_in_rio_da_casca.png";
