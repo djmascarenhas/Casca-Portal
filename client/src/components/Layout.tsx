@@ -23,6 +23,7 @@ export function Navbar() {
     { name: "Sobre", href: "/sobre" },
     { name: "História", href: "/historia" },
     { name: "Atrações", href: "/atracoes" },
+    { name: "Projetos", href: "/projetos" },
     { name: "Galeria", href: "/galeria" },
     { name: "Notícias", href: "/blog" },
     { name: "Contato", href: "/contato" },
@@ -111,6 +112,7 @@ export function Footer() {
             <li><Link href="/sobre" className="hover:text-white transition-colors">Sobre a Comunidade</Link></li>
             <li><Link href="/historia" className="hover:text-white transition-colors">História & Patrimônio</Link></li>
             <li><Link href="/atracoes" className="hover:text-white transition-colors">Pontos Turísticos</Link></li>
+            <li><Link href="/projetos" className="hover:text-white transition-colors">Projetos & Parceiros</Link></li>
             <li><Link href="/blog" className="hover:text-white transition-colors">Notícias & Eventos</Link></li>
           </ul>
         </div>

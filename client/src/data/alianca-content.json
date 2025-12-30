@@ -1,0 +1,183 @@
+{
+  "projeto": {
+    "titulo": "Aliança Rio da Casca Vivo",
+    "subtitulo": "Uma iniciativa de preservação, turismo sustentável e desenvolvimento comunitário",
+    "visaoGeral": "A Aliança Rio da Casca Vivo é uma iniciativa colaborativa que une comunidade, instituições de ensino, organizações de preservação e poder público para promover o desenvolvimento sustentável da região do Rio da Casca, na Chapada dos Guimarães. Nosso objetivo é valorizar o patrimônio natural, histórico e cultural, gerando oportunidades econômicas responsáveis para a comunidade local.",
+    "fatos": [
+      "Primeira usina hidrelétrica de Mato Grosso (Casca I, 1928)",
+      "Sede do Santuário de Elefantes Brasil, pioneiro na América Latina",
+      "Chalé dos Governadores: patrimônio histórico desde 1929",
+      "Corredor ecológico Ponte Alta → Casca com fauna e flora exuberantes",
+      "Brejão: habitat de sucuris-verdes e biodiversidade única"
+    ],
+    "eixos": [
+      {
+        "titulo": "Preservação Ambiental",
+        "descricao": "Proteção das nascentes, monitoramento de fauna e flora, e protocolos de visita segura para garantir a conservação do ecossistema."
+      },
+      {
+        "titulo": "Turismo Sustentável",
+        "descricao": "Roteiros de ecoturismo, observação de vida selvagem, trilhas guiadas e experiências culturais que respeitam os limites do ambiente."
+      },
+      {
+        "titulo": "Educação e Pesquisa",
+        "descricao": "Parcerias com instituições de ensino para pesquisa científica, educação ambiental e formação de guias locais."
+      },
+      {
+        "titulo": "Desenvolvimento Comunitário",
+        "descricao": "Capacitação de moradores, fomento ao empreendedorismo local e valorização da cultura e tradições da comunidade."
+      }
+    ],
+    "planoCrescimento": [
+      "Fase 1: Estruturação de trilhas e sinalização",
+      "Fase 2: Capacitação de guias locais certificados",
+      "Fase 3: Implementação de centro de visitantes",
+      "Fase 4: Parcerias para turismo científico e educacional"
+    ],
+    "casoDeUso": "Visitantes interessados em ecoturismo, pesquisadores, estudantes, e turistas que buscam experiências autênticas de conexão com a natureza e história local.",
+    "publicoAlvo": [
+      "Turistas nacionais e internacionais",
+      "Pesquisadores e acadêmicos",
+      "Escolas e grupos educacionais",
+      "Fotógrafos e observadores de vida selvagem"
+    ],
+    "indicadores": [
+      "Número de visitantes mensais",
+      "Satisfação dos visitantes (NPS)",
+      "Espécies monitoradas no corredor ecológico",
+      "Famílias beneficiadas economicamente"
+    ],
+    "governanca": "A Aliança é coordenada por um conselho composto por representantes da Associação de Moradores, IFMT Campus São Vicente, Santuário de Elefantes Brasil, e apoio técnico da prefeitura de Chapada dos Guimarães."
+  },
+  "parceiros": [
+    {
+      "nome": "IFMT Campus São Vicente",
+      "descricao": "Instituto Federal de Mato Grosso - Parceria em pesquisa, educação ambiental e formação técnica.",
+      "tipo": "Educação"
+    },
+    {
+      "nome": "Santuário de Elefantes Brasil",
+      "descricao": "Organização pioneira na América Latina no resgate e cuidado de elefantes, promovendo preservação e consciência ambiental.",
+      "tipo": "Preservação"
+    },
+    {
+      "nome": "Associação de Moradores do Rio da Casca",
+      "descricao": "Representação da comunidade local, guardiã das tradições e protagonista do desenvolvimento sustentável.",
+      "tipo": "Comunidade"
+    },
+    {
+      "nome": "Prefeitura de Chapada dos Guimarães",
+      "descricao": "Apoio institucional e infraestrutura para o desenvolvimento turístico responsável.",
+      "tipo": "Governo"
+    }
+  ],
+  "atrativos": [
+    {
+      "nome": "Brejão",
+      "slug": "brejao",
+      "resumo": "Área alagada com biodiversidade única, habitat de sucuris-verdes. Observação ética com passarelas e monitoramento."
+    },
+    {
+      "nome": "Poço do Pacu",
+      "slug": "poco-do-pacu",
+      "resumo": "Corredeira rasa a ~5 km do centro, tradição da pesca artesanal e banho refrescante."
+    },
+    {
+      "nome": "Cachoeiras",
+      "slug": "cachoeiras",
+      "resumo": "Diversas quedas d'água incluindo a famosa Pedra Furada, perfeitas para contemplação e fotografia."
+    },
+    {
+      "nome": "Lago Manso",
+      "slug": "manso",
+      "resumo": "Lazer náutico, pesca esportiva e praias de água doce a poucos quilômetros da comunidade."
+    }
+  ],
+  "historia": {
+    "titulo": "História & Patrimônio",
+    "timeline": [
+      {
+        "ano": "1929",
+        "evento": "Construção do Chalé dos Governadores",
+        "descricao": "Residência oficial utilizada por governadores de Mato Grosso, testemunha de decisões históricas do estado."
+      },
+      {
+        "ano": "1928",
+        "evento": "Inauguração da Usina Casca I",
+        "descricao": "Primeira usina hidrelétrica de Mato Grosso, marco da eletrificação do estado."
+      },
+      {
+        "ano": "1940s",
+        "evento": "Expansão: Casca II e III",
+        "descricao": "Ampliação da capacidade de geração para atender a crescente demanda regional."
+      },
+      {
+        "ano": "2012",
+        "evento": "Criação do Santuário de Elefantes",
+        "descricao": "O primeiro santuário de elefantes da América Latina é estabelecido na região."
+      }
+    ]
+  },
+  "natureza": {
+    "titulo": "Natureza & Biodiversidade",
+    "corredorEcologico": "O corredor ecológico Ponte Alta → Casca é um dos mais preservados da região, conectando diferentes biomas e servindo de refúgio para espécies ameaçadas.",
+    "protocolosVisita": [
+      "Mantenha distância segura da fauna selvagem",
+      "Não alimente os animais",
+      "Utilize calçados adequados para trilhas",
+      "Contrate guias locais credenciados",
+      "Não descarte lixo na natureza"
+    ],
+    "sucuri": "A sucuri-verde (Eunectes murinus) é uma das espécies mais impressionantes do Brejão. Protocolos de avistagem ética garantem a segurança dos visitantes e o bem-estar dos animais."
+  },
+  "voluntariado": {
+    "titulo": "Seja Voluntário",
+    "descricao": "A Aliança Rio da Casca Vivo acolhe voluntários de diversas áreas: biologia, turismo, educação, comunicação e muito mais.",
+    "comoParticipar": [
+      "Preencha o formulário de interesse na página de contato",
+      "Participe de uma reunião de orientação",
+      "Escolha seu eixo de atuação",
+      "Contribua com seu tempo e conhecimento"
+    ]
+  },
+  "fontes": [
+    {
+      "titulo": "O Livre - Reportagem sobre o Chalé dos Governadores",
+      "url": "#"
+    },
+    {
+      "titulo": "Documentação histórica: Casca I - Primeira Usina de MT",
+      "url": "#"
+    },
+    {
+      "titulo": "Guia Oficial de Chapada dos Guimarães",
+      "url": "#"
+    },
+    {
+      "titulo": "Guia Turístico do Lago do Manso",
+      "url": "#"
+    }
+  ],
+  "identidadeVisual": {
+    "descricao": "A identidade visual da Aliança Rio da Casca Vivo reflete a conexão entre natureza, história e comunidade.",
+    "cores": {
+      "verde": "#2D5A3D",
+      "azul": "#1E4D6B",
+      "terracota": "#B5573A"
+    },
+    "variacoes": [
+      {
+        "nome": "Símbolo Principal",
+        "descricao": "Elemento gráfico que representa o rio e a natureza"
+      },
+      {
+        "nome": "Logo Horizontal",
+        "descricao": "Para uso em headers e materiais digitais"
+      },
+      {
+        "nome": "Mascote",
+        "descricao": "Personagem amigável para comunicação educacional"
+      }
+    ]
+  }
+}

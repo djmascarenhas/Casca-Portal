@@ -114,6 +114,23 @@ export function Home() {
         </blockquote>
       </Section>
 
+      {/* Projetos & Parceiros CTA */}
+      <Section background="muted">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl font-serif font-bold text-primary mb-4">Aliança Rio da Casca Vivo</h2>
+          <p className="text-muted-foreground mb-8">
+            Conheça a iniciativa que une comunidade, instituições e organizações para o desenvolvimento sustentável da região. 
+            Parcerias com IFMT, Santuário de Elefantes e mais.
+          </p>
+          <Link 
+            href="/projetos" 
+            className={cn(buttonVariants({ size: "lg" }), "bg-secondary hover:bg-secondary/90 text-white")}
+          >
+            Conheça os Projetos & Parceiros
+          </Link>
+        </div>
+      </Section>
+
       {/* Map Teaser */}
       <Section>
         <div className="grid md:grid-cols-2 gap-12 items-center">

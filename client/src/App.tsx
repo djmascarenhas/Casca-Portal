@@ -12,6 +12,8 @@ import { Gallery } from "@/pages/Gallery";
 import { Blog } from "@/pages/Blog";
 import { BlogPost } from "@/pages/BlogPost";
 import { Contact } from "@/pages/Contact";
+import { Projetos } from "@/pages/Projetos";
+import { ProjetoDetalhe } from "@/pages/ProjetoDetalhe";
 
 function Router() {
   return (
@@ -24,6 +26,8 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contato" component={Contact} />
+      <Route path="/projetos" component={Projetos} />
+      <Route path="/projetos/:slug" component={ProjetoDetalhe} />
       <Route component={NotFound} />
     </Switch>
   );
