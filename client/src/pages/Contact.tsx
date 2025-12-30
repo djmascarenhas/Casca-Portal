@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import homeHeroImg from "@assets/generated_images/aerial_view_of_rio_da_casca_nature.png";
+import homeHeroImg from "@assets/1000730803_1767132686330.png";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";

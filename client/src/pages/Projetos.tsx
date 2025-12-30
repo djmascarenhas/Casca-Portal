@@ -6,7 +6,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { Leaf, GraduationCap, Users, Building2, MapPin, TreePine, Droplets, Mountain, Ship, ArrowRight, CheckCircle } from "lucide-react";
-import homeHeroImg from "@assets/generated_images/aerial_view_of_rio_da_casca_nature.png";
+import homeHeroImg from "@assets/1000730803_1767132686330.png";
 import aliancaContent from "@/data/alianca-content.json";
 
 const iconMap: Record<string, React.ReactNode> = {
