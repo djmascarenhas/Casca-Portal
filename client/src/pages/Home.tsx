@@ -81,7 +81,7 @@ export function Home() {
             image={elephantImg}
             title="Santuário de Elefantes"
             description="Um refúgio de paz e recuperação para elefantes resgatados, pioneiro na América Latina. Conheça este projeto de amor e liberdade."
-            link="/atracoes"
+            link="/santuario"
             badges={["Preservação", "Vida Selvagem"]}
           />
           <AttractionCard 

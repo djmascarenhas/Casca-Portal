@@ -24,7 +24,7 @@ export function Attractions() {
             image={elephantImg}
             title="Santuário de Elefantes Brasil"
             description="O primeiro santuário de elefantes da América Latina. Uma organização sem fins lucrativos que resgata elefantes em cativeiro e lhes devolve a dignidade e a liberdade em um ambiente natural protegido. *Visitação restrita, consulte regras.*"
-            link="#"
+            link="/santuario"
             badges={["Internacional", "Vida Selvagem"]}
           />
           

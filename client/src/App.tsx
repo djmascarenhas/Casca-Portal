@@ -14,6 +14,7 @@ import { BlogPost } from "@/pages/BlogPost";
 import { Contact } from "@/pages/Contact";
 import { Projetos } from "@/pages/Projetos";
 import { ProjetoDetalhe } from "@/pages/ProjetoDetalhe";
+import { Santuario } from "@/pages/Santuario";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/contato" component={Contact} />
       <Route path="/projetos" component={Projetos} />
       <Route path="/projetos/:slug" component={ProjetoDetalhe} />
+      <Route path="/santuario" component={Santuario} />
       <Route component={NotFound} />
     </Switch>
   );
