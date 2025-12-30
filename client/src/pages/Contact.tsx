@@ -8,8 +8,53 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import homeHeroImg from "@assets/generated_images/aerial_view_of_rio_da_casca_nature.png";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
+import type { InsertContactMessage } from "@shared/schema";
 
 export function Contact() {
+  const [formData, setFormData] = useState<InsertContactMessage>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const contactMutation = useMutation({
+    mutationFn: async (data: InsertContactMessage) => {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Erro ao enviar mensagem");
+      }
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Mensagem enviada!",
+        description: "Obrigado pelo contato. Responderemos em breve.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Erro ao enviar",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    contactMutation.mutate(formData);
+  };
+
   return (
     <Layout>
       <Hero 
@@ -63,27 +108,62 @@ export function Contact() {
           </div>
 
           <Card className="p-8 shadow-lg border-muted">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">Nome</label>
-                  <Input id="name" placeholder="Seu nome" />
+                  <Input 
+                    id="name" 
+                    placeholder="Seu nome" 
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
+                    data-testid="input-name"
+                  />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">Email</label>
-                  <Input id="email" type="email" placeholder="seu@email.com" />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="seu@email.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                    data-testid="input-email"
+                  />
                 </div>
               </div>
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium">Assunto</label>
-                <Input id="subject" placeholder="Turismo, Imprensa, Parceria..." />
+                <Input 
+                  id="subject" 
+                  placeholder="Turismo, Imprensa, Parceria..."
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  required
+                  data-testid="input-subject"
+                />
               </div>
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">Mensagem</label>
-                <Textarea id="message" placeholder="Como podemos ajudar?" className="min-h-[120px]" />
+                <Textarea 
+                  id="message" 
+                  placeholder="Como podemos ajudar?" 
+                  className="min-h-[120px]"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                  data-testid="input-message"
+                />
               </div>
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wide">
-                Enviar Mensagem
+              <Button 
+                type="submit" 
+                className="w-full bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wide"
+                disabled={contactMutation.isPending}
+                data-testid="button-submit"
+              >
+                {contactMutation.isPending ? "Enviando..." : "Enviar Mensagem"}
               </Button>
             </form>
           </Card>

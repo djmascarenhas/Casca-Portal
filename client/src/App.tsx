@@ -10,6 +10,7 @@ import { History } from "@/pages/History";
 import { Attractions } from "@/pages/Attractions";
 import { Gallery } from "@/pages/Gallery";
 import { Blog } from "@/pages/Blog";
+import { BlogPost } from "@/pages/BlogPost";
 import { Contact } from "@/pages/Contact";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/atracoes" component={Attractions} />
       <Route path="/galeria" component={Gallery} />
       <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contato" component={Contact} />
       <Route component={NotFound} />
     </Switch>

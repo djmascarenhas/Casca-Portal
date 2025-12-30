@@ -1,7 +1,8 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface AttractionCardProps {
   image: string;
@@ -36,10 +37,14 @@ export function AttractionCard({ image, title, description, link, badges }: Attr
         <p className="text-muted-foreground line-clamp-3">{description}</p>
       </CardContent>
       <CardFooter className="pb-6">
-        <Link href={link}>
-          <Button variant="link" className="p-0 h-auto text-primary font-ui font-semibold group-hover:text-secondary transition-colors">
-            Saiba mais <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+        <Link 
+          href={link} 
+          className={cn(
+            buttonVariants({ variant: "link" }), 
+            "p-0 h-auto text-primary font-ui font-semibold group-hover:text-secondary transition-colors"
+          )}
+        >
+          Saiba mais <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
         </Link>
       </CardFooter>
     </Card>

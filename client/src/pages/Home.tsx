@@ -2,13 +2,14 @@ import { Layout } from "@/components/Layout";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { AttractionCard } from "@/components/AttractionCard";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Leaf, History, Camera, Map as MapIcon } from "lucide-react";
 import homeHeroImg from "@assets/generated_images/aerial_view_of_rio_da_casca_nature.png";
 import elephantImg from "@assets/generated_images/elephant_in_nature_sanctuary.png";
 import chaleImg from "@assets/generated_images/historic_chalé_dos_governadores.png";
 import trailImg from "@assets/generated_images/hiking_trail_in_rio_da_casca.png";
+import { cn } from "@/lib/utils";
 
 export function Home() {
   return (
@@ -19,10 +20,14 @@ export function Home() {
         subtitle="Um refúgio de natureza, história e preservação na Chapada dos Guimarães."
         size="large"
       >
-        <Link href="/sobre">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-ui uppercase tracking-wider text-sm px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all">
-            Descubra a Comunidade
-          </Button>
+        <Link 
+          href="/sobre" 
+          className={cn(
+            buttonVariants({ size: "lg" }),
+            "bg-primary hover:bg-primary/90 text-white font-ui uppercase tracking-wider text-sm px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all"
+          )}
+        >
+          Descubra a Comunidade
         </Link>
       </Hero>
 
@@ -63,10 +68,11 @@ export function Home() {
             <h2 className="text-3xl font-serif font-bold text-primary mb-2">Experiências Únicas</h2>
             <p className="text-muted-foreground">O que você não pode deixar de conhecer.</p>
           </div>
-          <Link href="/atracoes">
-            <Button variant="outline" className="hidden md:flex gap-2">
-              Ver todas <ArrowRight size={16} />
-            </Button>
+          <Link 
+            href="/atracoes" 
+            className={cn(buttonVariants({ variant: "outline" }), "hidden md:flex gap-2")}
+          >
+            Ver todas <ArrowRight size={16} />
           </Link>
         </div>
 
@@ -95,8 +101,8 @@ export function Home() {
         </div>
         
         <div className="mt-8 text-center md:hidden">
-          <Link href="/atracoes">
-            <Button variant="outline" className="w-full">Ver todas atrações</Button>
+          <Link href="/atracoes" className={cn(buttonVariants({ variant: "outline" }), "w-full")}>
+            Ver todas atrações
           </Link>
         </div>
       </Section>
@@ -127,8 +133,8 @@ export function Home() {
                 <span>Roteiros integrados com a natureza.</span>
               </li>
             </ul>
-            <Link href="/contato">
-              <Button>Como Chegar</Button>
+            <Link href="/contato" className={buttonVariants()}>
+              Como Chegar
             </Link>
           </div>
           <div className="bg-muted rounded-lg h-[300px] flex items-center justify-center text-muted-foreground">

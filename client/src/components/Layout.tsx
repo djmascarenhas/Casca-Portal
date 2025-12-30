@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Instagram, Facebook, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { NewsletterForm } from "@/components/NewsletterForm";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,23 +35,21 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/">
-          <a className={`text-2xl font-serif font-bold tracking-tighter ${scrolled ? 'text-primary' : 'text-white drop-shadow-md'}`}>
+        <Link href="/" className={`text-2xl font-serif font-bold tracking-tighter ${scrolled ? 'text-primary' : 'text-white drop-shadow-md'}`}>
             Rio da Casca
-          </a>
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href}>
-              <a
-                className={`text-sm font-ui font-medium uppercase tracking-wider hover:text-secondary transition-colors ${
-                  location === link.href ? "text-secondary" : scrolled ? "text-foreground" : "text-white drop-shadow-sm"
-                }`}
-              >
+            <Link 
+              key={link.href} 
+              href={link.href}
+              className={`text-sm font-ui font-medium uppercase tracking-wider hover:text-secondary transition-colors ${
+                location === link.href ? "text-secondary" : scrolled ? "text-foreground" : "text-white drop-shadow-sm"
+              }`}
+            >
                 {link.name}
-              </a>
             </Link>
           ))}
         </div>
@@ -75,15 +74,15 @@ export function Navbar() {
           >
             <div className="flex flex-col p-4 gap-4">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <a
-                    className={`text-sm font-ui font-bold uppercase tracking-wider ${
-                      location === link.href ? "text-secondary" : "text-foreground"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
+                <Link 
+                  key={link.href} 
+                  href={link.href}
+                  className={`text-sm font-ui font-bold uppercase tracking-wider ${
+                    location === link.href ? "text-secondary" : "text-foreground"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
                     {link.name}
-                  </a>
                 </Link>
               ))}
             </div>
@@ -109,10 +108,10 @@ export function Footer() {
         <div>
           <h4 className="font-ui font-bold uppercase tracking-wider mb-4 text-secondary">Navegação</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/80">
-            <li><Link href="/sobre"><a className="hover:text-white transition-colors">Sobre a Comunidade</a></Link></li>
-            <li><Link href="/historia"><a className="hover:text-white transition-colors">História & Patrimônio</a></Link></li>
-            <li><Link href="/atracoes"><a className="hover:text-white transition-colors">Pontos Turísticos</a></Link></li>
-            <li><Link href="/blog"><a className="hover:text-white transition-colors">Notícias & Eventos</a></Link></li>
+            <li><Link href="/sobre" className="hover:text-white transition-colors">Sobre a Comunidade</Link></li>
+            <li><Link href="/historia" className="hover:text-white transition-colors">História & Patrimônio</Link></li>
+            <li><Link href="/atracoes" className="hover:text-white transition-colors">Pontos Turísticos</Link></li>
+            <li><Link href="/blog" className="hover:text-white transition-colors">Notícias & Eventos</Link></li>
           </ul>
         </div>
 
@@ -128,18 +127,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h4 className="font-ui font-bold uppercase tracking-wider mb-4 text-secondary">Newsletter</h4>
-          <p className="text-xs text-primary-foreground/70 mb-2">Receba novidades e histórias da região.</p>
-          <div className="flex gap-2">
-            <input 
-              type="email" 
-              placeholder="Seu email" 
-              className="bg-primary-foreground/10 border border-primary-foreground/20 rounded px-3 py-2 text-sm w-full placeholder:text-primary-foreground/50 focus:outline-none focus:border-secondary text-white"
-            />
-            <Button size="sm" variant="secondary" className="bg-secondary text-white hover:bg-secondary/90">OK</Button>
-          </div>
-        </div>
+        <NewsletterForm />
       </div>
       
       <div className="container mx-auto px-4 mt-12 pt-8 border-t border-primary-foreground/10 text-center text-xs text-primary-foreground/50 font-ui">
