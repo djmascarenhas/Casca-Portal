@@ -1,0 +1,47 @@
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
+
+interface AttractionCardProps {
+  image: string;
+  title: string;
+  description: string;
+  link: string;
+  badges?: string[];
+}
+
+export function AttractionCard({ image, title, description, link, badges }: AttractionCardProps) {
+  return (
+    <Card className="overflow-hidden group border-none shadow-md hover:shadow-xl transition-all duration-300">
+      <div className="relative h-64 overflow-hidden">
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+        <div className="absolute bottom-4 left-4 right-4 text-white">
+          {badges && (
+            <div className="flex gap-2 mb-2">
+              {badges.map(b => (
+                <span key={b} className="text-[10px] font-ui uppercase tracking-wider bg-secondary/80 px-2 py-1 rounded-sm text-white">{b}</span>
+              ))}
+            </div>
+          )}
+          <h3 className="text-xl font-serif font-bold text-white leading-tight">{title}</h3>
+        </div>
+      </div>
+      <CardContent className="pt-6 pb-2">
+        <p className="text-muted-foreground line-clamp-3">{description}</p>
+      </CardContent>
+      <CardFooter className="pb-6">
+        <Link href={link}>
+          <Button variant="link" className="p-0 h-auto text-primary font-ui font-semibold group-hover:text-secondary transition-colors">
+            Saiba mais <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </Link>
+      </CardFooter>
+    </Card>
+  );
+}
