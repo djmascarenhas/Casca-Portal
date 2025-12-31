@@ -24,16 +24,11 @@ export function Santuario() {
         subtitle="Ajudando elefantes a serem elefantes de novo"
         size="default"
       />
-
       {/* Introdução */}
       <Section>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-serif font-bold text-primary mb-6">Conheça o SEB</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            A Associação Santuário de Elefantes Brasil (SEB) é uma organização da sociedade civil, sem fins lucrativos, 
-            que resgata elefantes cativos em situação de risco, oferecendo-lhes o espaço, as condições e os cuidados 
-            necessários para que possam se recuperar física e emocionalmente dos anos passados em cativeiro.
-          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">O Santuário de Elefantes Brasil (SEB) é uma organização sem fins lucrativos que ajuda a transformar as vidas e o futuro dos elefantes cativos da América do Sul, devolvendo a eles a liberdade de poder ser quem querem e merecem ser – elefantes.</p>
           <p className="text-lg text-muted-foreground leading-relaxed">
             O Santuário está localizado no município de <strong>Chapada dos Guimarães, Mato Grosso</strong>, na região 
             do Rio da Casca. O SEB é uma colaboração com duas renomadas organizações internacionais: 
@@ -41,7 +36,6 @@ export function Santuario() {
           </p>
         </div>
       </Section>
-
       {/* Por que o Brasil */}
       <Section background="muted">
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
@@ -81,7 +75,6 @@ export function Santuario() {
           </div>
         </div>
       </Section>
-
       {/* As Elefantas */}
       <Section>
         <h2 className="text-3xl font-serif font-bold text-primary mb-4 text-center">Conheça Nossas Elefantas</h2>
@@ -113,7 +106,6 @@ export function Santuario() {
           ))}
         </div>
       </Section>
-
       {/* A Crise */}
       <Section background="primary">
         <div className="max-w-3xl mx-auto text-center text-white">
@@ -129,7 +121,6 @@ export function Santuario() {
           </p>
         </div>
       </Section>
-
       {/* Como Ajudar */}
       <Section>
         <h2 className="text-3xl font-serif font-bold text-primary mb-8 text-center">Faça Parte da Manada!</h2>
@@ -198,7 +189,6 @@ export function Santuario() {
           </a>
         </div>
       </Section>
-
       {/* Links e Contato */}
       <Section background="muted">
         <div className="max-w-3xl mx-auto text-center">
