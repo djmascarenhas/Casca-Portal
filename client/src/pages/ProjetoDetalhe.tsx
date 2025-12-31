@@ -84,19 +84,81 @@ const pageContent: Record<string, { title: string; content: React.ReactNode }> =
     ),
   },
   manso: {
-    title: "Lago Manso",
+    title: "Lago do Manso",
     content: (
       <>
         <p className="text-lg text-muted-foreground mb-6">
-          O Lago Manso, formado pela Usina Hidrelétrica de Manso, está a poucos quilômetros da comunidade 
-          e oferece opções variadas de lazer náutico.
+          O <strong>Lago do Manso</strong> é uma imensa represa artificial criada para geração de energia elétrica, 
+          inaugurada em 2001. Localizado a cerca de 90 km de Cuiabá, é maior que a Baía de Guanabara e 10 vezes 
+          maior que o Lago Paranoá em Brasília.
         </p>
-        <h3 className="text-2xl font-serif font-bold text-primary mb-4">Atividades</h3>
+        <p className="text-muted-foreground mb-8">
+          Com águas calmas e cristalinas, o lago se transformou em um importante polo de turismo náutico e lazer 
+          na região da Chapada dos Guimarães, sendo um destino imperdível para quem visita a comunidade do Rio da Casca.
+        </p>
+
+        <h3 className="text-2xl font-serif font-bold text-primary mb-4">Esportes Náuticos</h3>
+        <div className="grid md:grid-cols-2 gap-3 mb-8">
+          <div className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Jet ski</div>
+          <div className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Stand up paddle</div>
+          <div className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Caiaque</div>
+          <div className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Wakeboard</div>
+          <div className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Passeios de lancha</div>
+          <div className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Vela</div>
+          <div className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Pesca esportiva</div>
+          <div className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Praias de água doce</div>
+        </div>
+
+        <h3 className="text-2xl font-serif font-bold text-primary mb-4">Ilhas no Lago</h3>
+        <div className="space-y-4 mb-8">
+          <div className="bg-muted p-4 rounded-lg">
+            <h4 className="font-bold text-foreground mb-2">Ilha Bora Bora</h4>
+            <p className="text-muted-foreground text-sm">
+              Principal ponto turístico do lago. Durante a seca, emerge uma faixa de terra de até 4 metros de altura. 
+              Águas transparentes, ideal para banho e encontro de lanchas.
+            </p>
+          </div>
+          <div className="bg-muted p-4 rounded-lg">
+            <h4 className="font-bold text-foreground mb-2">Ilha Caribe</h4>
+            <p className="text-muted-foreground text-sm">
+              Nomeada pelo fundo de areia branca cristalina. Ambas as ilhas ficam submersas durante a cheia.
+            </p>
+          </div>
+        </div>
+
+        <h3 className="text-2xl font-serif font-bold text-primary mb-4">Formações Rochosas</h3>
+        <p className="text-muted-foreground mb-4">
+          O lago abriga monumentos naturais esculpidos ao longo de milhares de anos:
+        </p>
+        <ul className="space-y-2 mb-8">
+          <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> <strong>Morro do Chapéu</strong> - formação rochosa icônica</li>
+          <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> <strong>Morro do Navio</strong> - visível de vários pontos do lago</li>
+        </ul>
+
+        <h3 className="text-2xl font-serif font-bold text-primary mb-4">Melhor Época para Visitar</h3>
+        <div className="grid md:grid-cols-2 gap-4 mb-8">
+          <div className="bg-primary/5 p-4 rounded-lg">
+            <h4 className="font-bold text-primary mb-2">Seca (Maio a Outubro)</h4>
+            <p className="text-muted-foreground text-sm">
+              Alta temporada. Clima agradável, trilhas em ótimas condições, ideal para mirantes e formações rochosas.
+              Julho a outubro oferece dias ensolarados e melhor visibilidade.
+            </p>
+          </div>
+          <div className="bg-secondary/5 p-4 rounded-lg">
+            <h4 className="font-bold text-secondary mb-2">Verão (Novembro a Abril)</h4>
+            <p className="text-muted-foreground text-sm">
+              Temperaturas mais elevadas. Cachoeiras com mais volume de água. Temporada de chuvas 
+              (pode haver fechamento temporário de acessos).
+            </p>
+          </div>
+        </div>
+
+        <h3 className="text-2xl font-serif font-bold text-primary mb-4">Dicas Práticas</h3>
         <ul className="space-y-2 mb-6">
-          <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Pesca esportiva</li>
-          <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Passeios de barco</li>
-          <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Stand-up paddle</li>
-          <li className="flex items-center gap-2"><CheckCircle size={18} className="text-green-600" /> Praias de água doce</li>
+          <li className="flex items-start gap-2"><CheckCircle size={18} className="text-green-600 mt-1" /> Contrate guias locais para maior segurança</li>
+          <li className="flex items-start gap-2"><CheckCircle size={18} className="text-green-600 mt-1" /> Distância de Cuiabá: aproximadamente 90-100 km (1h30 a 2h de carro)</li>
+          <li className="flex items-start gap-2"><CheckCircle size={18} className="text-green-600 mt-1" /> Acesso pelas rodovias MT-251 e MT-351, bem sinalizadas</li>
+          <li className="flex items-start gap-2"><CheckCircle size={18} className="text-green-600 mt-1" /> Há diversas opções de hospedagem na região, desde pousadas até resorts</li>
         </ul>
       </>
     ),
