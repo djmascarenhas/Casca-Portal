@@ -12,9 +12,9 @@ import trailImg from "@assets/generated_images/hiking_trail_in_rio_da_casca.png"
 import { cn } from "@/lib/utils";
 
 const sponsors = [
-  { name: "Cachoeira da Pedra Furada", link: "/atracoes#pedra-furada" },
-  { name: "Bar do Léo", link: "#" },
-  { name: "Mercearia Rio da Casca", link: "#" },
+  { name: "Cachoeira da Pedra Furada", link: "/patrocinadores/pedra-furada" },
+  { name: "Bar do Léo", link: "/patrocinadores/bar-do-leo" },
+  { name: "Mercearia Rio da Casca", link: "/patrocinadores/mercearia" },
 ];
 
 export function Home() {

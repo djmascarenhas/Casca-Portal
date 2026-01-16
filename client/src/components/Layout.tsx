@@ -7,7 +7,7 @@ import { NewsletterForm } from "@/components/NewsletterForm";
 import { useTheme } from "next-themes";
 
 function ThemeToggle({ scrolled }: { scrolled: boolean }) {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -16,18 +16,20 @@ function ThemeToggle({ scrolled }: { scrolled: boolean }) {
 
   if (!mounted) return null;
 
+  const isDark = resolvedTheme === 'dark';
+
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className={`p-2 rounded-full transition-colors ${
         scrolled 
           ? 'hover:bg-muted text-foreground' 
           : 'hover:bg-white/20 text-white'
       }`}
-      aria-label={theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
+      aria-label={isDark ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
       data-testid="button-theme-toggle"
     >
-      {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+      {isDark ? <Sun size={20} /> : <Moon size={20} />}
     </button>
   );
 }

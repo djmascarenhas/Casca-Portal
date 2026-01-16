@@ -16,6 +16,9 @@ import { Contact } from "@/pages/Contact";
 import { Projetos } from "@/pages/Projetos";
 import { ProjetoDetalhe } from "@/pages/ProjetoDetalhe";
 import { Santuario } from "@/pages/Santuario";
+import { PatrocinadorPedraFurada } from "@/pages/PatrocinadorPedraFurada";
+import { PatrocinadorBarDoLeo } from "@/pages/PatrocinadorBarDoLeo";
+import { PatrocinadorMercearia } from "@/pages/PatrocinadorMercearia";
 
 function Router() {
   return (
@@ -31,6 +34,9 @@ function Router() {
       <Route path="/projetos" component={Projetos} />
       <Route path="/projetos/:slug" component={ProjetoDetalhe} />
       <Route path="/santuario" component={Santuario} />
+      <Route path="/patrocinadores/pedra-furada" component={PatrocinadorPedraFurada} />
+      <Route path="/patrocinadores/bar-do-leo" component={PatrocinadorBarDoLeo} />
+      <Route path="/patrocinadores/mercearia" component={PatrocinadorMercearia} />
       <Route component={NotFound} />
     </Switch>
   );
