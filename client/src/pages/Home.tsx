@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { AttractionCard } from "@/components/AttractionCard";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Leaf, History, Camera, Map as MapIcon } from "lucide-react";
 import homeHeroImg from "@assets/1000730803_1767132686330.png";
@@ -10,6 +10,12 @@ import elephantImg from "@assets/generated_images/elephant_in_nature_sanctuary.p
 import chaleImg from "@assets/generated_images/historic_chalé_dos_governadores.png";
 import trailImg from "@assets/generated_images/hiking_trail_in_rio_da_casca.png";
 import { cn } from "@/lib/utils";
+
+const sponsors = [
+  { name: "Cachoeira da Pedra Furada", link: "/atracoes#pedra-furada" },
+  { name: "Bar do Léo", link: "#" },
+  { name: "Mercearia Rio da Casca", link: "#" },
+];
 
 export function Home() {
   return (
@@ -30,6 +36,27 @@ export function Home() {
           Descubra a Comunidade
         </Link>
       </Hero>
+
+      {/* Sponsors Marquee */}
+      <div className="bg-primary py-4 overflow-hidden" data-testid="sponsors-section">
+        <div className="container mx-auto px-4">
+          <h3 className="text-center text-white/80 font-ui text-sm uppercase tracking-wider mb-4">Patrocinadores</h3>
+        </div>
+        <div className="relative">
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[...sponsors, ...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
+              <Link 
+                key={`${sponsor.name}-${index}`}
+                href={sponsor.link}
+                className="mx-8 text-white/90 font-serif text-xl md:text-2xl font-bold hover:text-secondary transition-colors inline-block"
+                data-testid={`sponsor-${index}`}
+              >
+                {sponsor.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Intro Section */}
       <Section className="text-center max-w-4xl mx-auto">

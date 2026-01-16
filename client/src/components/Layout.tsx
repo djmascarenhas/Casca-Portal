@@ -1,9 +1,36 @@
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
-import { Menu, X, Instagram, Facebook, MapPin } from "lucide-react";
+import { Menu, X, Instagram, Facebook, MapPin, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { useTheme } from "next-themes";
+
+function ThemeToggle({ scrolled }: { scrolled: boolean }) {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className={`p-2 rounded-full transition-colors ${
+        scrolled 
+          ? 'hover:bg-muted text-foreground' 
+          : 'hover:bg-white/20 text-white'
+      }`}
+      aria-label={theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
+      data-testid="button-theme-toggle"
+    >
+      {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+    </button>
+  );
+}
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,15 +80,20 @@ export function Navbar() {
                 {link.name}
             </Link>
           ))}
+          <ThemeToggle scrolled={scrolled} />
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className={scrolled ? "text-foreground" : "text-white"} /> : <Menu className={scrolled ? "text-foreground" : "text-white"} />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle scrolled={scrolled} />
+          <button
+            className="text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
+            data-testid="button-mobile-menu"
+          >
+            {isOpen ? <X className={scrolled ? "text-foreground" : "text-white"} /> : <Menu className={scrolled ? "text-foreground" : "text-white"} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

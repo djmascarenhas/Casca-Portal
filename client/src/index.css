@@ -56,6 +56,43 @@
   --radius: 0.25rem;
 }
 
+/* Dark Mode Overrides */
+.dark {
+  --color-primary: hsl(135 40% 45%);
+  --color-primary-foreground: hsl(210 20% 10%);
+  
+  --color-secondary: hsl(25 50% 55%);
+  --color-secondary-foreground: hsl(210 20% 10%);
+  
+  --color-background: hsl(210 20% 10%);
+  --color-foreground: hsl(40 25% 92%);
+  
+  --color-card: hsl(210 18% 14%);
+  --color-card-foreground: hsl(40 25% 92%);
+  
+  --color-popover: hsl(210 18% 14%);
+  --color-popover-foreground: hsl(40 25% 92%);
+  
+  --color-muted: hsl(210 15% 20%);
+  --color-muted-foreground: hsl(40 10% 65%);
+  
+  --color-accent: hsl(25 50% 55%);
+  --color-accent-foreground: hsl(210 20% 10%);
+  
+  --color-destructive: hsl(0 55% 50%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  
+  --color-border: hsl(210 15% 25%);
+  --color-input: hsl(210 15% 25%);
+  --color-ring: hsl(135 40% 45%);
+  
+  --color-chart-1: hsl(135 40% 50%);
+  --color-chart-2: hsl(25 50% 55%);
+  --color-chart-3: hsl(40 65% 55%);
+  --color-chart-4: hsl(210 45% 50%);
+  --color-chart-5: hsl(0 0% 70%);
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -83,6 +120,34 @@
   background: hsl(135 35% 25%);
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: hsl(210 15% 15%);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(135 30% 35%);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(135 40% 45%);
+}
+
 .font-ui {
   font-family: var(--font-ui);
+}
+
+/* Marquee Animation for Sponsors */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
