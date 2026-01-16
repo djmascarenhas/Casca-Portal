@@ -1,5 +1,5 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -10,11 +10,27 @@ interface AttractionCardProps {
   description: string;
   link: string;
   badges?: string[];
+  onNavigate?: () => void;
 }
 
-export function AttractionCard({ image, title, description, link, badges }: AttractionCardProps) {
+export function AttractionCard({ image, title, description, link, badges, onNavigate }: AttractionCardProps) {
+  const isAnchor = link.startsWith('#');
+  
+  const handleClick = (e: React.MouseEvent) => {
+    if (isAnchor && onNavigate) {
+      e.preventDefault();
+      onNavigate();
+    }
+  };
+
+  const linkContent = (
+    <>
+      Saiba mais <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+    </>
+  );
+
   return (
-    <Card className="overflow-hidden group border-none shadow-md hover:shadow-xl transition-all duration-300">
+    <Card className="overflow-hidden group border-none shadow-md hover:shadow-xl transition-all duration-300" data-testid={`card-${title.toLowerCase().replace(/\s+/g, '-')}`}>
       <div className="relative h-64 overflow-hidden">
         <img 
           src={image} 
@@ -37,15 +53,29 @@ export function AttractionCard({ image, title, description, link, badges }: Attr
         <p className="text-muted-foreground line-clamp-3">{description}</p>
       </CardContent>
       <CardFooter className="pb-6">
-        <Link 
-          href={link} 
-          className={cn(
-            buttonVariants({ variant: "link" }), 
-            "p-0 h-auto text-primary font-ui font-semibold group-hover:text-secondary transition-colors"
-          )}
-        >
-          Saiba mais <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-        </Link>
+        {isAnchor ? (
+          <button 
+            onClick={handleClick}
+            className={cn(
+              buttonVariants({ variant: "link" }), 
+              "p-0 h-auto text-primary font-ui font-semibold group-hover:text-secondary transition-colors cursor-pointer"
+            )}
+            data-testid={`link-${title.toLowerCase().replace(/\s+/g, '-')}`}
+          >
+            {linkContent}
+          </button>
+        ) : (
+          <Link 
+            href={link} 
+            className={cn(
+              buttonVariants({ variant: "link" }), 
+              "p-0 h-auto text-primary font-ui font-semibold group-hover:text-secondary transition-colors"
+            )}
+            data-testid={`link-${title.toLowerCase().replace(/\s+/g, '-')}`}
+          >
+            {linkContent}
+          </Link>
+        )}
       </CardFooter>
     </Card>
   );
