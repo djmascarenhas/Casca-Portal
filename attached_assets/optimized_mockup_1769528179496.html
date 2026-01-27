@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFullPage - História da Cascata (OTIMIZADO)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2E7D32 0%, #558B2F 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat bottom;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: #2E7D32;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .hero-location {
+            margin-top: 30px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+        }
+
+        /* Destaques */
+        .featured-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .featured-title {
+            font-size: 28px;
+            color: #2E7D32;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .featured-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #558B2F, #7CB342);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        .featured-content {
+            padding: 20px;
+        }
+
+        .article-emoji {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+
+        .featured-card h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .featured-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .featured-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #7CB342;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            background: #558B2F;
+            transform: translateX(5px);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .timeline-title {
+            font-size: 28px;
+            color: #2E7D32;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: #F1F8E9;
+            border: 2px solid #7CB342;
+            color: #558B2F;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: #7CB342;
+            color: white;
+        }
+
+        .timeline-item {
+            padding: 20px 0;
+            border-left: 3px solid #7CB342;
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '●';
+            position: absolute;
+            left: -9px;
+            top: 22px;
+            color: #7CB342;
+            font-size: 20px;
+        }
+
+        .timeline-item h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item a {
+            color: #7CB342;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-title {
+            font-size: 20px;
+            color: #2E7D32;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-list a:hover {
+            color: #7CB342;
+        }
+
+        /* Newsletter */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .newsletter-form input {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .newsletter-form button {
+            padding: 12px;
+            background: #7CB342;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #558B2F;
+        }
+
+        .newsletter-note {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        /* Popular Posts */
+        .popular-list {
+            list-style: none;
+            counter-reset: popular;
+        }
+
+        .popular-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            counter-increment: popular;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .popular-list li:last-child {
+            border-bottom: none;
+        }
+
+        .popular-list li::before {
+            content: counter(popular);
+            position: absolute;
+            left: 0;
+            top: 15px;
+            background: #7CB342;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .popular-list a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .popular-list a:hover {
+            color: #7CB342;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, #2E7D32 0%, #558B2F 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .footer-cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+
+        .footer-form button {
+            padding: 15px 40px;
+            background: white;
+            color: #2E7D32;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .footer-form button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-stats {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .footer-form {
+                flex-direction: column;
+            }
+        }
+
+        /* Comparison Banner */
+        .comparison-banner {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .comparison-banner strong {
+            color: #856404;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Comparison Banner -->
+    <div class="comparison-banner">
+        <strong>🎯 MOCKUP OTIMIZADO</strong> - Veja abaixo as melhorias aplicadas na landing page
+    </div>
+
+    <!-- Hero Section OTIMIZADO -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">🏛️</div>
+            <h1>História da Cascata</h1>
+            <p>Descubra os Segredos Escondidos<br>nas Águas de Mato Grosso</p>
+            <a href="#explorar" class="hero-cta">EXPLORAR HISTÓRIAS →</a>
+            <div class="hero-location">📍 Chapada dos Guimarães, Mato Grosso</div>
+        </div>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Conteúdo Principal -->
+        <main>
+            <!-- Seção de Destaques -->
+            <section class="featured-section" id="explorar">
+                <h2 class="featured-title">📌 Destaques da Semana</h2>
+                <div class="featured-grid">
+                    <!-- Card 1 - OTIMIZADO -->
+                    <article class="featured-card">
+                        <div class="featured-image">⚡</div>
+                        <div class="featured-content">
+                            <h3><span class="article-emoji">⚡</span> O Dia em que a Luz Chegou ao Interior</h3>
+                            <p>Antes de 1920, Marzano vivia no escuro. Descubra como uma pequena usina de 4.000 KW transformou o cotidiano de uma comunidade inteira.</p>
+                            <div class="featured-meta">📅 1920s | ⏱️ 5 min | 🏛️ Infraestrutura</div>
+                            <a href="#" class="cta-primary">DESCOBRIR A HISTÓRIA →</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 - OTIMIZADO -->
+                    <article class="featured-card">
+                        <div class="featured-image">🌊</div>
+                        <div class="featured-content">
+                            <h3><span class="article-emoji">🌊</span> A Primeira Luz da América Latina Nasceu Aqui</h3>
+                            <p>1889: Enquanto o Brasil virava República, Mato Grosso acendia a primeira grande hidrelétrica do continente. Uma história que poucos conhecem.</p>
+                            <div class="featured-meta">📅 1889 | ⏱️ 8 min | 🏆 Marco Histórico</div>
+                            <a href="#" class="cta-primary">CONHECER O PIONEIRISMO →</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 - OTIMIZADO -->
+                    <article class="featured-card">
+                        <div class="featured-image">👤</div>
+                        <div class="featured-content">
+                            <h3><span class="article-emoji">👤</span> O Visionário que Iluminou Minas Gerais</h3>
+                            <p>Filho de imigrantes, Bernardo Mascarenhas apostou tudo em uma ideia radical para 1847: energia elétrica para as massas.</p>
+                            <div class="featured-meta">📅 1847-1899 | ⏱️ 6 min | 👥 Biografias</div>
+                            <a href="#" class="cta-primary">CONHECER O PIONEIRO →</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 - OTIMIZADO -->
+                    <article class="featured-card">
+                        <div class="featured-image">📜</div>
+                        <div class="featured-content">
+                            <h3><span class="article-emoji">📜</span> Mato Grosso: Lutas Entre 1891 e 1906</h3>
+                            <p>Um período turbulento que definiu o futuro político do estado. Conflitos, heróis e decisões que ecoam até hoje.</p>
+                            <div class="featured-meta">📅 1891-1906 | ⏱️ 7 min | 🏛️ Política</div>
+                            <a href="#" class="cta-primary">EXPLORAR O PERÍODO →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Linha do Tempo -->
+            <section class="timeline-section">
+                <h2 class="timeline-title">🕰️ Linha do Tempo Histórica</h2>
+                <div class="timeline-filters">
+                    <button class="filter-btn">Século XIX</button>
+                    <button class="filter-btn">Século XX</button>
+                    <button class="filter-btn">República</button>
+                    <button class="filter-btn">Energia</button>
+                </div>
+                <div class="timeline-item">
+                    <h4>1891-1906: Conflitos Políticos em Mato Grosso</h4>
+                    <p><a href="#">Explore as batalhas que moldaram o estado →</a></p>
+                </div>
+                <div class="timeline-item">
+                    <h4>1889: A Revolução da Hidrelétrica</h4>
+                    <p><a href="#">Descubra o marco energético da América Latina →</a></p>
+                </div>
+                <div class="timeline-item">
+                    <h4>1847: Langsdorff Chega a Cuiabá</h4>
+                    <p><a href="#">A expedição científica que mudou tudo →</a></p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar OTIMIZADA -->
+        <aside class="sidebar">
+            <!-- Explorar por Tema -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">🎯 Explore por Tema</h3>
+                <ul class="category-list">
+                    <li><a href="#">⚡ Energia & Tecnologia</a></li>
+                    <li><a href="#">🏛️ Política & República</a></li>
+                    <li><a href="#">👥 Biografias Históricas</a></li>
+                    <li><a href="#">📜 Documentos Raros</a></li>
+                    <li><a href="#">🌊 Patrimônio Natural</a></li>
+                </ul>
+            </div>
+
+            <!-- Mais Lidos -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">📚 Mais Lidos da Semana</h3>
+                <ol class="popular-list">
+                    <li><a href="#">A Primeira Luz da América Latina</a></li>
+                    <li><a href="#">O Visionário que Iluminou MG</a></li>
+                    <li><a href="#">Conflitos da República em MT</a></li>
+                </ol>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">💌 Receba Histórias por Email</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor email" required>
+                    <button type="submit">INSCREVER-SE →</button>
+                </form>
+                <p class="newsletter-note">Toda sexta, uma história esquecida de Mato Grosso</p>
+            </div>
+
+            <!-- Busca -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">🔍 Busca Avançada</h3>
+                <input type="search" placeholder="Buscar histórias..." style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px;">
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="footer-cta">
+        <h2>📜 Não Deixe a História se Perder</h2>
+        <p>Cadastre-se e receba toda sexta uma história esquecida de Mato Grosso no seu email</p>
+        <form class="footer-form">
+            <input type="email" placeholder="Seu melhor email" required>
+            <button type="submit">ENVIAR</button>
+        </form>
+        <div class="footer-stats">
+            ✓ 2.847 leitores já recebem | ✓ Cancele quando quiser
+        </div>
+    </div>
+</body>
+</html>
