@@ -29,7 +29,9 @@ export function Home() {
       <Hero 
         image={homeHeroImg}
         title="Rio da Casca"
-        subtitle="Um refúgio de natureza, história e preservação na Chapada dos Guimarães."
+        subtitle="Descubra os segredos escondidos nas águas de Mato Grosso. Um refúgio de natureza, história e preservação."
+        icon="🏛️"
+        location="Chapada dos Guimarães, MT"
         size="large"
       >
         <Link 
@@ -106,6 +108,74 @@ export function Home() {
           </div>
         </div>
       </div>
+
+      {/* Destaques da Semana */}
+      <Section>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2 text-center">
+            ✨ Destaques da Semana
+          </h2>
+          <p className="text-muted-foreground text-center mb-10">
+            Histórias e descobertas que você não pode perder
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Card 1 - Grande */}
+            <Link href="/santuario" className="md:col-span-2 featured-card group">
+              <div className="relative h-72 rounded-xl overflow-hidden bg-card shadow-md">
+                <img 
+                  src={elephantImg} 
+                  alt="Santuário de Elefantes"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <span className="text-2xl mb-2 block">🐘</span>
+                  <h3 className="text-xl font-serif font-bold text-white mb-2">
+                    Maia e Guida: As Pioneiras do Santuário
+                  </h3>
+                  <p className="text-white/80 text-sm">
+                    Conheça a história das primeiras elefantas a encontrarem liberdade na América Latina
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Cards menores */}
+            <div className="flex flex-col gap-6">
+              <Link href="/linha-do-tempo" className="featured-card group">
+                <div className="relative h-32 rounded-xl overflow-hidden bg-card shadow-md">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80" />
+                  <div className="absolute inset-0 p-4 flex flex-col justify-center">
+                    <span className="text-lg mb-1">🕰️</span>
+                    <h3 className="text-base font-serif font-bold text-white">
+                      Linha do Tempo Interativa
+                    </h3>
+                    <p className="text-white/80 text-xs">
+                      Navegue pelos séculos de história
+                    </p>
+                  </div>
+                </div>
+              </Link>
+
+              <Link href="/atracoes" className="featured-card group">
+                <div className="relative h-32 rounded-xl overflow-hidden bg-card shadow-md">
+                  <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary/80" />
+                  <div className="absolute inset-0 p-4 flex flex-col justify-center">
+                    <span className="text-lg mb-1">🏞️</span>
+                    <h3 className="text-base font-serif font-bold text-white">
+                      6 Atrações Imperdíveis
+                    </h3>
+                    <p className="text-white/80 text-xs">
+                      Cachoeiras, trilhas e patrimônio
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Section>
 
       {/* Intro Section */}
       <Section className="text-center max-w-4xl mx-auto">

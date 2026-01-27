@@ -18,8 +18,10 @@ export function Attractions() {
     <Layout>
       <Hero 
         image={waterfallImg}
-        title="Atrativos"
-        subtitle="Descubra as maravilhas naturais e históricas da Comunidade Rio da Casca"
+        title="🏞️ Atrativos"
+        subtitle="Descubra as maravilhas naturais e históricas que fazem do Rio da Casca um destino único"
+        icon="🗺️"
+        location="Comunidade Rio da Casca, MT"
         size="default"
       />
       

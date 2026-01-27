@@ -51,6 +51,7 @@ export function Navbar() {
     { name: "Início", href: "/" },
     { name: "Sobre", href: "/sobre" },
     { name: "História", href: "/historia" },
+    { name: "Linha do Tempo", href: "/linha-do-tempo" },
     { name: "Atrações", href: "/atracoes" },
     { name: "Projetos", href: "/projetos" },
     { name: "Galeria", href: "/galeria" },

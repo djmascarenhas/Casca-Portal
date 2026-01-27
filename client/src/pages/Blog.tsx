@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
+import { Sidebar } from "@/components/Sidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -67,8 +68,10 @@ export function Blog() {
     <Layout>
       <Hero 
         image={heroImg}
-        title="Blog & Notícias"
-        subtitle="História, cultura e natureza da região do Rio da Casca"
+        title="📰 Blog & Notícias"
+        subtitle="Histórias que o tempo não contou: descubra os segredos da região"
+        icon="📜"
+        location="Memórias do Rio da Casca"
         size="default"
       />
 
@@ -133,96 +136,106 @@ export function Blog() {
         </Section>
       )}
 
-      {/* Posts Grid */}
+      {/* Posts Grid with Sidebar */}
       <Section>
-        {isLoading ? (
-          <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-            <p className="text-muted-foreground">Carregando artigos...</p>
-          </div>
-        ) : filteredPosts && filteredPosts.length > 0 ? (
-          <>
-            {searchQuery || selectedCategory ? (
-              <p className="text-center text-muted-foreground mb-8">
-                {filteredPosts.length} {filteredPosts.length === 1 ? 'artigo encontrado' : 'artigos encontrados'}
-                {selectedCategory && ` em "${selectedCategory}"`}
-                {searchQuery && ` para "${searchQuery}"`}
-              </p>
-            ) : null}
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
-                <Card 
-                  key={post.id} 
-                  className="border-none shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden" 
-                  data-testid={`card-post-${post.id}`}
-                >
-                  <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden relative">
-                    {post.imageUrl ? (
-                      <img 
-                        src={post.imageUrl} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                        alt={post.title}
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <BookOpen className="text-primary/40" size={64} />
-                      </div>
-                    )}
-                    <div className="absolute top-4 left-4">
-                      <span className={cn(
-                        "px-3 py-1 rounded-full text-xs font-bold",
-                        categoryColors[post.category] || "bg-gray-100 text-gray-800"
-                      )}>
-                        {post.category}
-                      </span>
-                    </div>
-                  </div>
-                  <CardHeader className="pb-2">
-                    <CardTitle className="font-serif text-xl line-clamp-2 group-hover:text-primary transition-colors">
-                      {post.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
-                      <Calendar size={14} />
-                      <span>{formatDate(post.publishedAt)}</span>
-                    </div>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    <Link 
-                      href={`/blog/${post.slug}`} 
-                      className={cn(buttonVariants({ variant: "link" }), "p-0 text-primary font-semibold")}
-                    >
-                      Ler artigo completo →
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className="text-center py-16">
-            <BookOpen className="mx-auto text-muted-foreground/30 mb-4" size={64} />
-            {searchQuery || selectedCategory ? (
+        <div className="grid lg:grid-cols-[1fr_320px] gap-8">
+          {/* Main Content */}
+          <div>
+            {isLoading ? (
+              <div className="text-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+                <p className="text-muted-foreground">Carregando artigos...</p>
+              </div>
+            ) : filteredPosts && filteredPosts.length > 0 ? (
               <>
-                <p className="text-muted-foreground text-lg mb-2">Nenhum artigo encontrado</p>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Tente ajustar sua busca ou filtros
-                </p>
-                <Button 
-                  variant="outline" 
-                  onClick={() => { setSearchQuery(""); setSelectedCategory(null); }}
-                >
-                  Limpar filtros
-                </Button>
+                {searchQuery || selectedCategory ? (
+                  <p className="text-muted-foreground mb-8">
+                    {filteredPosts.length} {filteredPosts.length === 1 ? 'artigo encontrado' : 'artigos encontrados'}
+                    {selectedCategory && ` em "${selectedCategory}"`}
+                    {searchQuery && ` para "${searchQuery}"`}
+                  </p>
+                ) : null}
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {filteredPosts.map((post) => (
+                    <Card 
+                      key={post.id} 
+                      className="border-none shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden" 
+                      data-testid={`card-post-${post.id}`}
+                    >
+                      <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden relative">
+                        {post.imageUrl ? (
+                          <img 
+                            src={post.imageUrl} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                            alt={post.title}
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <BookOpen className="text-primary/40" size={64} />
+                          </div>
+                        )}
+                        <div className="absolute top-4 left-4">
+                          <span className={cn(
+                            "px-3 py-1 rounded-full text-xs font-bold",
+                            categoryColors[post.category] || "bg-gray-100 text-gray-800"
+                          )}>
+                            {post.category}
+                          </span>
+                        </div>
+                      </div>
+                      <CardHeader className="pb-2">
+                        <CardTitle className="font-serif text-xl line-clamp-2 group-hover:text-primary transition-colors">
+                          {post.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                          <Calendar size={14} />
+                          <span>{formatDate(post.publishedAt)}</span>
+                        </div>
+                        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                          {post.excerpt}
+                        </p>
+                        <Link 
+                          href={`/blog/${post.slug}`} 
+                          className={cn(buttonVariants({ variant: "link" }), "p-0 text-primary font-semibold")}
+                        >
+                          Ler artigo completo →
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </>
             ) : (
-              <p className="text-muted-foreground text-lg">Nenhum artigo publicado ainda.</p>
+              <div className="text-center py-16">
+                <BookOpen className="mx-auto text-muted-foreground/30 mb-4" size={64} />
+                {searchQuery || selectedCategory ? (
+                  <>
+                    <p className="text-muted-foreground text-lg mb-2">Nenhum artigo encontrado</p>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Tente ajustar sua busca ou filtros
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => { setSearchQuery(""); setSelectedCategory(null); }}
+                    >
+                      Limpar filtros
+                    </Button>
+                  </>
+                ) : (
+                  <p className="text-muted-foreground text-lg">Nenhum artigo publicado ainda.</p>
+                )}
+              </div>
             )}
           </div>
-        )}
+
+          {/* Sidebar */}
+          <div className="hidden lg:block">
+            <Sidebar />
+          </div>
+        </div>
       </Section>
 
       {/* CTA Section */}
