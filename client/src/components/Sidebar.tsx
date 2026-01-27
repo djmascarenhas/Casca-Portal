@@ -148,21 +148,20 @@ export function Sidebar() {
         </CardContent>
       </Card>
 
-      {/* CTA para Timeline */}
+      {/* CTA para História */}
       <Card className="bg-gradient-to-br from-secondary to-secondary/80 border-none">
         <CardContent className="pt-6">
           <div className="text-center">
-            <span className="text-3xl block mb-3">🕰️</span>
             <h3 className="text-lg font-serif font-bold text-white mb-2">
-              Linha do Tempo
+              História & Patrimônio
             </h3>
             <p className="text-sm text-white/80 mb-4">
               Navegue pelos séculos de história da região
             </p>
             <Link 
-              href="/linha-do-tempo"
+              href="/historia"
               className="inline-block bg-white text-secondary font-bold px-4 py-2 rounded-md hover:bg-white/90 transition-colors text-sm"
-              data-testid="link-sidebar-timeline"
+              data-testid="link-sidebar-history"
             >
               Explorar →
             </Link>

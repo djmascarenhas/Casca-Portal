@@ -142,13 +142,12 @@ export function Home() {
 
             {/* Cards menores */}
             <div className="flex flex-col gap-6">
-              <Link href="/linha-do-tempo" className="featured-card group">
+              <Link href="/historia" className="featured-card group">
                 <div className="relative h-32 rounded-xl overflow-hidden bg-card shadow-md">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80" />
                   <div className="absolute inset-0 p-4 flex flex-col justify-center">
-                    <span className="text-lg mb-1">🕰️</span>
                     <h3 className="text-base font-serif font-bold text-white">
-                      Linha do Tempo Interativa
+                      História & Patrimônio
                     </h3>
                     <p className="text-white/80 text-xs">
                       Navegue pelos séculos de história
