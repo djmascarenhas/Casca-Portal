@@ -9,7 +9,6 @@ interface HeroProps {
   size?: "default" | "large" | "full";
   overlay?: boolean;
   align?: "center" | "left";
-  icon?: string;
   location?: string;
   children?: React.ReactNode;
 }
@@ -21,7 +20,6 @@ export function Hero({
   size = "default", 
   overlay = true, 
   align = "center",
-  icon,
   location,
   children 
 }: HeroProps) {
@@ -59,19 +57,6 @@ export function Hero({
 
       {/* Content */}
       <div className={cn("container relative z-20 mx-auto px-4", align === "center" ? "text-center" : "text-left")}>
-        {/* Floating Icon */}
-        {icon && (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="hero-icon text-5xl md:text-7xl mb-6"
-            aria-hidden="true"
-          >
-            {icon}
-          </motion.div>
-        )}
-
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

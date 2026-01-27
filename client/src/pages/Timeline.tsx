@@ -119,7 +119,6 @@ export function Timeline() {
         image={heroImg}
         title="Linha do Tempo"
         subtitle="Uma jornada através dos séculos que moldaram a história do Rio da Casca"
-        icon="🕰️"
         location="Chapada dos Guimarães, MT"
         size="default"
       />

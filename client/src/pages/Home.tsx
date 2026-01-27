@@ -30,7 +30,6 @@ export function Home() {
         image={homeHeroImg}
         title="Rio da Casca"
         subtitle="Descubra os segredos escondidos nas águas de Mato Grosso. Um refúgio de natureza, história e preservação."
-        icon="🏛️"
         location="Chapada dos Guimarães, MT"
         size="large"
       >

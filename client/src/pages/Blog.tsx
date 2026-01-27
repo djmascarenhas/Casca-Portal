@@ -68,9 +68,8 @@ export function Blog() {
     <Layout>
       <Hero 
         image={heroImg}
-        title="📰 Blog & Notícias"
+        title="Blog & Notícias"
         subtitle="Histórias que o tempo não contou: descubra os segredos da região"
-        icon="📜"
         location="Memórias do Rio da Casca"
         size="default"
       />
