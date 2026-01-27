@@ -82,3 +82,61 @@ Four main tables:
 - `wouter`: Client-side routing
 - `zod`: Runtime validation
 - Full shadcn/ui component set via Radix UI primitives
+
+## Recent Changes (January 2026)
+
+### Integration of "História da Cascata" Optimization Package
+
+**New Features Added:**
+
+1. **Enhanced Hero Component** (`client/src/components/Hero.tsx`)
+   - Floating emoji icon animation
+   - Gradient overlays with primary color tint
+   - Wave SVG decoration at bottom
+   - Location badge with MapPin icon
+   - Props: `icon`, `location` added
+
+2. **Interactive Timeline Page** (`client/src/pages/Timeline.tsx`)
+   - Route: `/linha-do-tempo`
+   - Period filters: Todos, Século XIX, Século XX, Século XXI
+   - Animated event cards with Framer Motion
+   - Color-coded category markers (energia, politica, patrimonio, cultura)
+   - 7 historical events from 1889 to present
+
+3. **Copywriting System with Emojis**
+   - Themed emojis throughout UI for emotional engagement
+   - Applied to Attractions page (🏞️, 🗺️)
+   - Applied to Blog page (📰, 📜)
+   - Timeline and featured sections use contextual emojis
+
+4. **Sidebar Component** (`client/src/components/Sidebar.tsx`)
+   - Newsletter signup widget (highlighted design)
+   - Categories with counts and emoji icons
+   - "Mais Lidos" (most read) articles section
+   - CTA card for Timeline page
+   - Integrated into Blog page layout
+
+5. **"Destaques da Semana" Section** (Home page)
+   - Featured cards grid (2-column + sidebar layout)
+   - Main featured card with image and overlay
+   - Two smaller gradient cards for Timeline and Attractions
+   - Hover effects with lift animation
+
+6. **Analytics Integration** (`client/src/hooks/useAnalytics.ts`)
+   - `AnalyticsProvider` wraps the app
+   - Tracks: page views, scroll depth (25%, 50%, 75%, 100%), time on page
+   - Ready for Google Analytics integration (GA_MEASUREMENT_ID)
+   - Console logging for development
+
+7. **CSS Enhancements** (`client/src/index.css`)
+   - Floating icon animation (`@keyframes float`)
+   - Timeline styles with vertical line and markers
+   - Filter button active states
+   - Featured card hover effects
+   - Loading skeleton animation
+   - Reduced motion accessibility support
+   - Enhanced focus states for accessibility
+
+### Navigation Updates
+- Added "Linha do Tempo" to main navigation
+- Retained "História" link (both are available)
