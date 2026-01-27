@@ -77,3 +77,30 @@ export const insertGalleryPhotoSchema = createInsertSchema(galleryPhotos).omit({
 
 export type InsertGalleryPhoto = z.infer<typeof insertGalleryPhotoSchema>;
 export type GalleryPhoto = typeof galleryPhotos.$inferSelect;
+
+export const testimonials = pgTable("testimonials", {
+  id: serial("id").primaryKey(),
+  authorName: text("author_name").notNull(),
+  authorCity: text("author_city"),
+  authorEmail: text("author_email"),
+  message: text("message").notNull(),
+  emotion: text("emotion").notNull(),
+  photoUrl: text("photo_url"),
+  attraction: text("attraction").notNull().default("pedra-furada"),
+  approved: boolean("approved").default(false).notNull(),
+  featured: boolean("featured").default(false).notNull(),
+  instagramHandle: text("instagram_handle"),
+  sharedOnSocial: boolean("shared_on_social").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertTestimonialSchema = createInsertSchema(testimonials).omit({
+  id: true,
+  approved: true,
+  featured: true,
+  sharedOnSocial: true,
+  createdAt: true,
+});
+
+export type InsertTestimonial = z.infer<typeof insertTestimonialSchema>;
+export type Testimonial = typeof testimonials.$inferSelect;

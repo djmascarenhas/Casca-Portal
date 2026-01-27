@@ -5,6 +5,7 @@ import {
   contactMessages, 
   blogPosts, 
   galleryPhotos,
+  testimonials,
   type InsertNewsletterSubscriber,
   type NewsletterSubscriber,
   type InsertContactMessage,
@@ -12,9 +13,11 @@ import {
   type InsertBlogPost,
   type BlogPost,
   type InsertGalleryPhoto,
-  type GalleryPhoto
+  type GalleryPhoto,
+  type InsertTestimonial,
+  type Testimonial
 } from "@shared/schema";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, and } from "drizzle-orm";
 
 const { Pool } = pg;
 
@@ -41,6 +44,14 @@ export interface IStorage {
   getAllGalleryPhotos(): Promise<GalleryPhoto[]>;
   createGalleryPhoto(photo: InsertGalleryPhoto): Promise<GalleryPhoto>;
   approveGalleryPhoto(id: number): Promise<GalleryPhoto | undefined>;
+  
+  // Testimonials
+  getApprovedTestimonials(attraction?: string): Promise<Testimonial[]>;
+  getAllTestimonials(attraction?: string): Promise<Testimonial[]>;
+  createTestimonial(testimonial: InsertTestimonial): Promise<Testimonial>;
+  approveTestimonial(id: number): Promise<Testimonial | undefined>;
+  featureTestimonial(id: number, featured: boolean): Promise<Testimonial | undefined>;
+  getTestimonialsCount(attraction?: string): Promise<number>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -91,6 +102,47 @@ export class DatabaseStorage implements IStorage {
   async approveGalleryPhoto(id: number): Promise<GalleryPhoto | undefined> {
     const [result] = await db.update(galleryPhotos).set({ approved: true }).where(eq(galleryPhotos.id, id)).returning();
     return result;
+  }
+
+  // Testimonials
+  async getApprovedTestimonials(attraction?: string): Promise<Testimonial[]> {
+    if (attraction) {
+      return await db.select().from(testimonials)
+        .where(and(eq(testimonials.approved, true), eq(testimonials.attraction, attraction)))
+        .orderBy(desc(testimonials.createdAt));
+    }
+    return await db.select().from(testimonials)
+      .where(eq(testimonials.approved, true))
+      .orderBy(desc(testimonials.createdAt));
+  }
+
+  async getAllTestimonials(attraction?: string): Promise<Testimonial[]> {
+    if (attraction) {
+      return await db.select().from(testimonials)
+        .where(eq(testimonials.attraction, attraction))
+        .orderBy(desc(testimonials.createdAt));
+    }
+    return await db.select().from(testimonials).orderBy(desc(testimonials.createdAt));
+  }
+
+  async createTestimonial(testimonial: InsertTestimonial): Promise<Testimonial> {
+    const [result] = await db.insert(testimonials).values(testimonial).returning();
+    return result;
+  }
+
+  async approveTestimonial(id: number): Promise<Testimonial | undefined> {
+    const [result] = await db.update(testimonials).set({ approved: true }).where(eq(testimonials.id, id)).returning();
+    return result;
+  }
+
+  async featureTestimonial(id: number, featured: boolean): Promise<Testimonial | undefined> {
+    const [result] = await db.update(testimonials).set({ featured }).where(eq(testimonials.id, id)).returning();
+    return result;
+  }
+
+  async getTestimonialsCount(attraction?: string): Promise<number> {
+    const result = await this.getApprovedTestimonials(attraction);
+    return result.length;
   }
 }
 

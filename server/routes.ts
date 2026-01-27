@@ -5,7 +5,8 @@ import {
   insertNewsletterSubscriberSchema, 
   insertContactMessageSchema,
   insertBlogPostSchema,
-  insertGalleryPhotoSchema 
+  insertGalleryPhotoSchema,
+  insertTestimonialSchema 
 } from "@shared/schema";
 import { fromError } from "zod-validation-error";
 
@@ -114,6 +115,61 @@ export async function registerRoutes(
       }
       console.error("Submit gallery photo error:", error);
       res.status(500).json({ error: "Erro ao enviar foto." });
+    }
+  });
+
+  // Testimonials - Get approved
+  app.get("/api/testimonials", async (req, res) => {
+    try {
+      const attraction = req.query.attraction as string | undefined;
+      const testimonials = await storage.getApprovedTestimonials(attraction);
+      const count = testimonials.length;
+      res.json({ testimonials, count });
+    } catch (error) {
+      console.error("Get testimonials error:", error);
+      res.status(500).json({ error: "Erro ao buscar testemunhos." });
+    }
+  });
+
+  // Testimonials - Submit new
+  app.post("/api/testimonials", async (req, res) => {
+    try {
+      const data = insertTestimonialSchema.parse(req.body);
+      const testimonial = await storage.createTestimonial(data);
+      res.json({ success: true, testimonial });
+    } catch (error: any) {
+      if (error.name === "ZodError") {
+        return res.status(400).json({ error: fromError(error).toString() });
+      }
+      console.error("Submit testimonial error:", error);
+      res.status(500).json({ error: "Erro ao enviar testemunho." });
+    }
+  });
+
+  // Testimonials - Count
+  app.get("/api/testimonials/count", async (req, res) => {
+    try {
+      const attraction = req.query.attraction as string | undefined;
+      const count = await storage.getTestimonialsCount(attraction);
+      res.json({ count });
+    } catch (error) {
+      console.error("Get testimonials count error:", error);
+      res.status(500).json({ error: "Erro ao contar testemunhos." });
+    }
+  });
+
+  // Testimonials - Approve (admin)
+  app.post("/api/testimonials/:id/approve", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const testimonial = await storage.approveTestimonial(id);
+      if (!testimonial) {
+        return res.status(404).json({ error: "Testemunho não encontrado." });
+      }
+      res.json({ success: true, testimonial });
+    } catch (error) {
+      console.error("Approve testimonial error:", error);
+      res.status(500).json({ error: "Erro ao aprovar testemunho." });
     }
   });
 

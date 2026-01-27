@@ -128,7 +128,16 @@ Four main tables:
    - Ready for Google Analytics integration (GA_MEASUREMENT_ID)
    - Console logging for development
 
-7. **CSS Enhancements** (`client/src/index.css`)
+7. **Interactive Testimonial System**
+   - Database table: `testimonials` with fields for authorName, authorCity, message, emotion, attraction, approval status
+   - Submission page: `/pedra-furada/testemunho` with multi-step form (form → share → success)
+   - Emotion selection: Heart/Amei, Star/Inesquecível, Sparkles/Maravilhoso, Smile/Incrível
+   - Social sharing: WhatsApp, Facebook, copy-to-clipboard with pre-formatted messages
+   - Testimonial wall on `/patrocinadores/pedra-furada` displaying approved testimonials
+   - QR code generation for on-site visitor engagement
+   - API endpoints: GET/POST /api/testimonials, /api/testimonials/count, /api/testimonials/:id/approve
+
+8. **CSS Enhancements** (`client/src/index.css`)
    - Floating icon animation (`@keyframes float`)
    - Timeline styles with vertical line and markers
    - Filter button active states
