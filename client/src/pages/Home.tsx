@@ -11,9 +11,15 @@ import chaleImg from "@assets/generated_images/historic_chalé_dos_governadores.
 import trailImg from "@assets/generated_images/hiking_trail_in_rio_da_casca.png";
 import { cn } from "@/lib/utils";
 
-const sponsors = [
+const sponsorsDiamante = [
   { name: "Cachoeira da Pedra Furada", link: "/patrocinadores/pedra-furada" },
+];
+
+const sponsorsOuro = [
   { name: "Bar do Léo", link: "/patrocinadores/bar-do-leo" },
+];
+
+const sponsorsPrata = [
   { name: "Mercearia Rio da Casca", link: "/patrocinadores/mercearia" },
 ];
 
@@ -37,23 +43,66 @@ export function Home() {
         </Link>
       </Hero>
 
-      {/* Sponsors Marquee */}
-      <div className="bg-primary py-4 overflow-hidden" data-testid="sponsors-section">
+      {/* Sponsors Section */}
+      <div className="bg-primary py-8 overflow-hidden" data-testid="sponsors-section">
         <div className="container mx-auto px-4">
-          <h3 className="text-center text-white/80 font-ui text-sm uppercase tracking-wider mb-4">Patrocinadores</h3>
-        </div>
-        <div className="relative">
-          <div className="flex animate-marquee whitespace-nowrap">
-            {[...sponsors, ...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
-              <Link 
-                key={`${sponsor.name}-${index}`}
-                href={sponsor.link}
-                className="mx-8 text-white/90 font-serif text-xl md:text-2xl font-bold hover:text-secondary transition-colors inline-block"
-                data-testid={`sponsor-${index}`}
-              >
-                {sponsor.name}
-              </Link>
-            ))}
+          <h2 className="text-center text-white font-serif text-3xl md:text-4xl font-bold uppercase tracking-wider mb-8">PATROCINADORES</h2>
+          
+          {/* Diamante */}
+          <div className="mb-6">
+            <h3 className="text-center text-yellow-300 font-ui text-xl md:text-2xl font-bold uppercase tracking-wider mb-4">💎 Diamante</h3>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-marquee whitespace-nowrap">
+                {[...sponsorsDiamante, ...sponsorsDiamante, ...sponsorsDiamante, ...sponsorsDiamante, ...sponsorsDiamante, ...sponsorsDiamante].map((sponsor, index) => (
+                  <Link 
+                    key={`diamante-${sponsor.name}-${index}`}
+                    href={sponsor.link}
+                    className="mx-8 text-white font-serif text-2xl md:text-3xl font-bold hover:text-yellow-300 transition-colors inline-block"
+                    data-testid={`sponsor-diamante-${index}`}
+                  >
+                    {sponsor.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Ouro */}
+          <div className="mb-6">
+            <h3 className="text-center text-amber-400 font-ui text-lg md:text-xl font-bold uppercase tracking-wider mb-4">🥇 Ouro</h3>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-marquee whitespace-nowrap" style={{ animationDirection: 'reverse' }}>
+                {[...sponsorsOuro, ...sponsorsOuro, ...sponsorsOuro, ...sponsorsOuro, ...sponsorsOuro, ...sponsorsOuro].map((sponsor, index) => (
+                  <Link 
+                    key={`ouro-${sponsor.name}-${index}`}
+                    href={sponsor.link}
+                    className="mx-8 text-white/90 font-serif text-xl md:text-2xl font-bold hover:text-amber-400 transition-colors inline-block"
+                    data-testid={`sponsor-ouro-${index}`}
+                  >
+                    {sponsor.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Prata */}
+          <div>
+            <h3 className="text-center text-gray-300 font-ui text-base md:text-lg font-bold uppercase tracking-wider mb-4">🥈 Prata</h3>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-marquee whitespace-nowrap">
+                {[...sponsorsPrata, ...sponsorsPrata, ...sponsorsPrata, ...sponsorsPrata, ...sponsorsPrata, ...sponsorsPrata].map((sponsor, index) => (
+                  <Link 
+                    key={`prata-${sponsor.name}-${index}`}
+                    href={sponsor.link}
+                    className="mx-8 text-white/80 font-serif text-lg md:text-xl font-bold hover:text-gray-300 transition-colors inline-block"
+                    data-testid={`sponsor-prata-${index}`}
+                  >
+                    {sponsor.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
