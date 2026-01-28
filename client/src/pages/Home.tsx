@@ -11,16 +11,10 @@ import chaleImg from "@assets/generated_images/historic_chalé_dos_governadores.
 import trailImg from "@assets/generated_images/hiking_trail_in_rio_da_casca.png";
 import { cn } from "@/lib/utils";
 
-const sponsorsDiamante = [
-  { name: "Cachoeira da Pedra Furada", link: "/patrocinadores/pedra-furada" },
-];
-
-const sponsorsOuro = [
-  { name: "Bar do Léo", link: "/patrocinadores/bar-do-leo" },
-];
-
-const sponsorsPrata = [
-  { name: "Mercearia Rio da Casca", link: "/patrocinadores/mercearia" },
+const allSponsors = [
+  { name: "Cachoeira da Pedra Furada", link: "/patrocinadores/pedra-furada", tier: "diamante", icon: "💎", color: "text-yellow-300" },
+  { name: "Bar do Léo", link: "/patrocinadores/bar-do-leo", tier: "ouro", icon: "🥇", color: "text-amber-400" },
+  { name: "Mercearia Rio da Casca", link: "/patrocinadores/mercearia", tier: "prata", icon: "🥈", color: "text-gray-300" },
 ];
 
 export function Home() {
@@ -45,65 +39,22 @@ export function Home() {
       </Hero>
 
       {/* Sponsors Section */}
-      <div className="bg-primary py-8 overflow-hidden" data-testid="sponsors-section">
+      <div className="bg-primary py-6 overflow-hidden" data-testid="sponsors-section">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-white font-serif text-3xl md:text-4xl font-bold uppercase tracking-wider mb-8">PATROCINADORES</h2>
+          <h2 className="text-center text-white font-serif text-2xl md:text-3xl font-bold uppercase tracking-wider mb-6">PATROCINADORES</h2>
           
-          {/* Diamante */}
-          <div className="mb-6">
-            <h3 className="text-center text-yellow-300 font-ui text-xl md:text-2xl font-bold uppercase tracking-wider mb-4">💎 Diamante</h3>
-            <div className="relative overflow-hidden">
-              <div className="flex animate-marquee whitespace-nowrap">
-                {[...sponsorsDiamante, ...sponsorsDiamante, ...sponsorsDiamante, ...sponsorsDiamante, ...sponsorsDiamante, ...sponsorsDiamante].map((sponsor, index) => (
-                  <Link 
-                    key={`diamante-${sponsor.name}-${index}`}
-                    href={sponsor.link}
-                    className="mx-8 text-white font-serif text-2xl md:text-3xl font-bold hover:text-yellow-300 transition-colors inline-block"
-                    data-testid={`sponsor-diamante-${index}`}
-                  >
-                    {sponsor.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Ouro */}
-          <div className="mb-6">
-            <h3 className="text-center text-amber-400 font-ui text-lg md:text-xl font-bold uppercase tracking-wider mb-4">🥇 Ouro</h3>
-            <div className="relative overflow-hidden">
-              <div className="flex animate-marquee whitespace-nowrap" style={{ animationDirection: 'reverse' }}>
-                {[...sponsorsOuro, ...sponsorsOuro, ...sponsorsOuro, ...sponsorsOuro, ...sponsorsOuro, ...sponsorsOuro].map((sponsor, index) => (
-                  <Link 
-                    key={`ouro-${sponsor.name}-${index}`}
-                    href={sponsor.link}
-                    className="mx-8 text-white/90 font-serif text-xl md:text-2xl font-bold hover:text-amber-400 transition-colors inline-block"
-                    data-testid={`sponsor-ouro-${index}`}
-                  >
-                    {sponsor.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Prata */}
-          <div>
-            <h3 className="text-center text-gray-300 font-ui text-base md:text-lg font-bold uppercase tracking-wider mb-4">🥈 Prata</h3>
-            <div className="relative overflow-hidden">
-              <div className="flex animate-marquee whitespace-nowrap">
-                {[...sponsorsPrata, ...sponsorsPrata, ...sponsorsPrata, ...sponsorsPrata, ...sponsorsPrata, ...sponsorsPrata].map((sponsor, index) => (
-                  <Link 
-                    key={`prata-${sponsor.name}-${index}`}
-                    href={sponsor.link}
-                    className="mx-8 text-white/80 font-serif text-lg md:text-xl font-bold hover:text-gray-300 transition-colors inline-block"
-                    data-testid={`sponsor-prata-${index}`}
-                  >
-                    {sponsor.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+            {allSponsors.map((sponsor, index) => (
+              <Link 
+                key={`sponsor-${sponsor.tier}-${index}`}
+                href={sponsor.link}
+                className="flex items-center gap-2 text-white font-serif text-lg md:text-xl font-bold hover:scale-105 transition-transform"
+                data-testid={`sponsor-${sponsor.tier}-${index}`}
+              >
+                <span className={cn("text-xl md:text-2xl", sponsor.color)}>{sponsor.icon}</span>
+                <span className="hover:text-white/80">{sponsor.name}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
